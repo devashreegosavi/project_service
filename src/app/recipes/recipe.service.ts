@@ -8,8 +8,10 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class RecipeService {
   //recipeSelected = new EventEmitter<Recipe>();
+
   recipesChanged = new Subject<Recipe[]>();
-  private recipes: Recipe[] = [
+
+  /*private recipes: Recipe[] = [
     new Recipe(
         'A Test Recipe one','This is a simply Test one',
         'https://img.delicious.com.au/Iok992Gi/w759-h506-cfill/del/2022/02/chicken-chickpea-curry-163942-1.jpg',
@@ -23,7 +25,9 @@ export class RecipeService {
         new Ingredient('Buns', 2),
         new Ingredient('burger', 1)
       ])
-  ];
+  ];*/
+
+  private recipes : Recipe[] = [];
 
   constructor(private slService: ShoppingListService) {}
 
@@ -53,4 +57,8 @@ export class RecipeService {
     this.recipesChanged.next(this.recipes.slice());
   }
 
+  setRecipes(recipes : Recipe[]){
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 }
