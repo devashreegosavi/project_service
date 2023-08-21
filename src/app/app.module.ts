@@ -24,6 +24,7 @@ import { AuthComponent } from './auth/auth.component';
 //import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
+import { LoggingService } from './logging.service';
 //import { RecipesModule } from './recipes/recipes.module';
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CoreModule } from './core.module';
     //RecipesModule
   ],
   
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+ // providers : [LoggingService]
   
 })
 export class AppModule { }
